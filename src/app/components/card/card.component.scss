@@ -1,0 +1,93 @@
+.rating-buttons {
+  margin: 1rem -9px 0;
+  display: flex;
+}
+
+.rating-buttons > * {
+  margin: 0 10px;
+  width: calc(25% - 20px);
+}
+
+.rating-buttons button {
+  background: linear-gradient(135deg, #f97316, #fbbf24);
+  color: white;
+  padding: 0.5rem 0;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  transition: background 0.2s;
+  flex: 1;
+  border: none;
+  cursor: pointer;
+}
+
+.rating-buttons button div:first-child {
+  font-size: 2rem;
+}
+
+.interactive {
+  position: relative;
+  display: inline-block;
+}
+
+.interactive input {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 2px;
+  border-radius: 7px 7px 0 0;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  width: calc(100% - 10px);
+  height: 34px;
+  padding: 12px 3px 3px;
+  text-align: center;
+  z-index: 9;
+  font-size: 2rem;
+}
+
+.interactive button {
+  width: 100%;
+  height: 100%;
+}
+
+.rating-buttons button:hover {
+  background: linear-gradient(135deg, #ea580c, #f59e0b);
+}
+
+.category-button {
+  background: linear-gradient(135deg, #f97316, #fbbf24);
+  color: white;
+  border: none;
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.375rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='white' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.5rem center;
+  padding-right: 2rem;
+}
+
+.category-button:hover {
+  background: linear-gradient(135deg, #ea580c, #f59e0b);
+}
+
+.category-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(249, 115, 22, 0.5);
+}
+
+.category-button option {
+  background: #1a0f05;
+  color: white;
+}
+
+.category-button option:disabled {
+  color: #6b7280;
+  opacity: 0.5;
+}

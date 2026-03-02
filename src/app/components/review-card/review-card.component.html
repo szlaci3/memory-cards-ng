@@ -1,0 +1,76 @@
+<app-flashcard
+  [card]="card()"
+  (edit)="edit.emit($event)"
+>
+  <div header>
+    <span class="category-label">{{ card().category || 'EN to NL' }}</span>
+  </div>
+
+  @if (flashcard() && flashcard()!.revealCount() > 0) {
+    <div controls class="review-buttons">
+      <div class="rating-buttons">
+        <button type="button" (click)="handleRateCard(0)">
+          <div>10</div>
+          <div>min</div>
+        </button>
+
+        <div class="interactive">
+          <input
+            type="number"
+            [value]="inputValue()"
+            (input)="onInputChange($any($event.target).value)"
+            (focus)="onInputFocus()"
+            min="1"
+            max="999"
+          />
+          <button
+            type="button"
+            (click)="handleRateCard(inputValue())"
+            class="interactive-button"
+          >
+            <div>{{ inputValue() || '0' }}</div>
+            <div>
+              day{{ inputValue() === '' || inputValue() === '1' ? '' : 's' }}
+            </div>
+          </button>
+        </div>
+
+        <button type="button" (click)="handleRateCard(option3())">
+          <div>{{ option3() }}</div>
+          <div>day{{ option3() === 1 ? '' : 's' }}</div>
+        </button>
+
+        @if (!isInverseOrGroup()) {
+          <button type="button" (click)="handleRateCard(option4())">
+            <div>{{ option4() }}</div>
+            <div>days</div>
+          </button>
+        }
+      </div>
+
+      <div class="movement-buttons">
+        <button
+          type="button"
+          class="winter"
+          (click)="move.emit(7)"
+        >
+          #7
+        </button>
+        <button
+          type="button"
+          class="winter"
+          (click)="move.emit(30)"
+        >
+          #30
+        </button>
+        <button
+          type="button"
+          class="winter"
+          (click)="skip.emit()"
+        >
+          Last
+        </button>
+      </div>
+    </div>
+  }
+</app-flashcard>

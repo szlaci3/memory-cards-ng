@@ -1,0 +1,14 @@
+<div class="card-list">
+  @if (currentCard()) {
+    <app-card
+      [card]="currentCard()!"
+      [allCards]="cards()"
+      [selectedCategory]="selectedCategory()"
+      (rateCard)="handleRateCard($event)"
+      (categoryChange)="handleCategoryChange($event)"
+      (edit)="handleEdit($event)"
+    />
+  } @else if (cards().length > 0) {
+     <div class="no-cards-message">No cards in this category!</div>
+  }
+</div>

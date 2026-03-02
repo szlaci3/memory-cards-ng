@@ -1,0 +1,16 @@
+.card-list {
+  background-color: rgba(249, 115, 22, 0.15);
+  border: none;
+  box-shadow: 0 20px 25px -5px rgba(249, 115, 22, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 19px;
+  padding: 10px;
+}
+
+.no-cards-message {
+  text-align: center;
+  color: #9ca3af;
+  font-size: 1.125rem;
+  padding: 3rem 1rem;
+}

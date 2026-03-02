@@ -1,0 +1,117 @@
+@if (batch().length === 0) {
+  <div class="empty-state">
+    <h2>No sentences due!</h2>
+    <button type="button" class="action-button primary" (click)="router.navigate(['/'])">
+      Go Home
+    </button>
+  </div>
+} @else if (currentIndex() >= batch().length) {
+  <div class="empty-state">
+    <h2>All due sentences completed!</h2>
+    <button type="button" class="action-button primary" (click)="router.navigate(['/'])">
+      Go Home
+    </button>
+  </div>
+} @else if (currentSentence(); as sentence) {
+  <div class="sentence-container">
+    <div class="header">
+      <div class="streak">
+        <span>Sentences left: {{ batch().length - currentIndex() }}</span>
+      </div>
+    </div>
+
+    <div class="flashcard">
+      <div class="language-indicator">
+        <span class="category-label">Sentence Practice</span>
+      </div>
+
+      <div class="card-content">
+        <div class="side">
+          <h2>{{ promptText() }}</h2>
+        </div>
+
+        <div class="sentence-yellow" (click)="focusHiddenInput()">
+          @for (word of words(); track $index) {
+            <span>{{ getWordDisplay(word, $index) }}</span>
+          }
+        </div>
+      </div>
+
+      <div class="controls">
+        @if (!isFullyRevealed()) {
+          <input
+            #hiddenInput
+            type="text"
+            autoComplete="off"
+            autoCorrect="off"
+            autoCapitalize="none"
+            spellCheck="false"
+            value=""
+            (input)="onTyping($event)"
+            class="hidden-typing-input"
+          />
+          <button
+            type="button"
+            class="show-button"
+            (click)="showAnswer()"
+          >
+            Show Answer
+          </button>
+        }
+
+        @if (isFullyRevealed()) {
+          <div class="review-buttons" style="margin-top: 20px;">
+            <div class="rating-buttons">
+              <button type="button" (click)="handleRate(0)">
+                <div>10</div>
+                <div>min</div>
+              </button>
+              
+              <div class="interactive">
+                <input
+                  type="number"
+                  [value]="inputValue()"
+                  (input)="onInputChange($any($event.target).value)"
+                  (focus)="onInputFocus()"
+                  min="1"
+                  max="999"
+                  autoFocus
+                />
+                <button
+                  type="button"
+                  (click)="handleRate(inputValue())"
+                  class="interactive-button"
+                >
+                  <div>{{ inputValue() || '0' }}</div>
+                  <div>day{{ inputValue() === '' || inputValue() === '1' ? '' : 's' }}</div>
+                </button>
+              </div>
+
+              <button type="button" (click)="handleRate(option3())">
+                <div>{{ option3() }}</div>
+                <div>day{{ option3() === 1 ? '' : 's' }}</div>
+              </button>
+
+              <button type="button" (click)="handleRate(option4())">
+                <div>{{ option4() }}</div>
+                <div>days</div>
+              </button>
+            </div>
+
+            <div class="movement-buttons">
+              <button type="button" class="winter" (click)="handleMove(7)">#7</button>
+              <button type="button" class="winter" (click)="handleMove(30)">#30</button>
+              <button type="button" class="winter" (click)="handleSkip()">Last</button>
+            </div>
+
+            <div class="edit-action">
+              <button type="button" class="action-button primary" (click)="onEdit()">
+                Edit
+              </button>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+}

@@ -1,0 +1,54 @@
+<div class="flashcard">
+  <div>
+    <div class="language-indicator">
+      <ng-content select="[header]"></ng-content>
+    </div>
+
+    <div class="card-content" [class.dev-content]="isDevCategory()">
+      @for (side of sidesToReveal(); track $index) {
+        <div class="side" [class.side-yellow]="$index % 2 !== 0">
+          <h2>{{ side }}</h2>
+        </div>
+      }
+    </div>
+
+    <div class="controls">
+      @if (hasMoreSides()) {
+        <button
+          type="button"
+          class="show-button"
+          (click)="showNextSide()"
+        >
+          {{ revealCount() > 0 ? 'Show Next Side' : 'Show Answer' }}
+        </button>
+      }
+
+      <div class="projected-controls">
+        <ng-content select="[controls]"></ng-content>
+      </div>
+
+      <div class="difficulty-dots">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+
+      <div class="action-buttons">
+        <button
+          type="button"
+          (click)="onAddToDefault()"
+          class="add-to-default-btn winter"
+        >
+          Add to Default
+        </button>
+        <button 
+          type="button" 
+          class="action-button primary" 
+          (click)="onEditClick()"
+        >
+          Edit
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

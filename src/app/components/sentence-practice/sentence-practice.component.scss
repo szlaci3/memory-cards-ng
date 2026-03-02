@@ -1,0 +1,190 @@
+.sentence-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.empty-state {
+  text-align: center;
+  margin-top: 50px;
+  color: white;
+}
+
+.empty-state h2 {
+  margin-bottom: 1.5rem;
+}
+
+.header {
+  margin-bottom: 1rem;
+}
+
+.streak {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #9ca3af;
+}
+
+.category-label {
+  background: linear-gradient(135deg, #f97316, #fbbf24);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.375rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.sentence-yellow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  min-height: 60px;
+  font-size: 2.4rem;
+  font-weight: 500;
+  color: yellow;
+  cursor: text;
+  padding: 0 1rem;
+}
+
+.hidden-typing-input {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.flashcard {
+  outline: 10px solid rgb(171 171 171 / 1%);
+  border-radius: 10px;
+}
+
+.card-content {
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.side h2 {
+  color: white;
+  font-size: 2.4rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+.controls {
+  margin-top: 1.5rem;
+}
+
+.show-button {
+  width: calc(100% - 20px);
+  margin: 0 10px;
+  background: linear-gradient(135deg, #f97316, #fbbf24);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  transition: background 0.2s;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.review-buttons {
+  display: flex;
+  flex-direction: column;
+}
+
+.rating-buttons {
+  margin: 0 -9px;
+  display: flex;
+}
+
+.rating-buttons > * {
+  margin: 0 10px;
+  width: calc(25% - 20px);
+}
+
+.rating-buttons button {
+  background: linear-gradient(135deg, #f97316, #fbbf24);
+  color: white;
+  padding: 0.5rem 0;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  transition: background 0.2s;
+  flex: 1;
+  border: none;
+  cursor: pointer;
+}
+
+.rating-buttons button div:first-child {
+  font-size: 2rem;
+}
+
+.interactive {
+  position: relative;
+  display: inline-block;
+}
+
+.interactive input {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 2px;
+  border-radius: 7px 7px 0 0;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  width: calc(100% - 10px);
+  height: 34px;
+  padding: 12px 3px 3px;
+  text-align: center;
+  z-index: 9;
+  font-size: 2rem;
+}
+
+.interactive button {
+  width: 100%;
+  height: 100%;
+}
+
+.movement-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: stretch;
+  margin-top: 10px;
+  padding: 0 10px;
+}
+
+.movement-buttons button {
+  font-size: 2rem;
+  padding: .4em 0;
+  flex: 1;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.edit-action {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.action-button.primary {
+  background: linear-gradient(135deg, #f97316, #fbbf24);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.winter {
+  color: white;
+  background-color: #1a1a1a;
+}

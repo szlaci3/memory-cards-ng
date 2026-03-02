@@ -1,0 +1,62 @@
+<app-flashcard
+  [card]="card()"
+  (edit)="edit.emit($event)"
+>
+  <div header>
+    <select
+      class="category-button"
+      [value]="selectedCategory()"
+      (change)="handleCategoryChange($event)"
+      aria-label="Select card category"
+    >
+      @for (cat of allCategories; track cat) {
+        <option
+          [value]="cat"
+          [disabled]="!categoriesWithCards().has(cat)"
+        >
+          {{ cat }}
+        </option>
+      }
+    </select>
+  </div>
+
+  @if (flashcard() && flashcard()!.revealCount() > 0) {
+    <div controls class="rating-buttons">
+      <button type="button" (click)="handleRateCard(0)">
+        <div>10</div>
+        <div>min</div>
+      </button>
+      
+      <div class="interactive">
+        <input
+          type="number"
+          [value]="inputValue()"
+          (input)="onInputChange($any($event.target).value)"
+          (focus)="onInputFocus()"
+          min="1"
+          max="999"
+        />
+        <button
+          type="button"
+          (click)="handleRateCard(inputValue())"
+          class="interactive-button"
+        >
+          <div>{{ inputValue() || '0' }}</div>
+          <div>
+            day{{ inputValue() === '' || inputValue() === '1' ? '' : 's' }}
+          </div>
+        </button>
+      </div>
+
+      <button type="button" (click)="handleRateCard(option3())">
+        <div>{{ option3() }}</div>
+        <div>day{{ option3() === 1 ? '' : 's' }}</div>
+      </button>
+
+      <button type="button" (click)="handleRateCard(option4())">
+        <div>{{ option4() }}</div>
+        <div>days</div>
+      </button>
+    </div>
+  }
+</app-flashcard>

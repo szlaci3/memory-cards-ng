@@ -1,0 +1,21 @@
+@if (cards().length === 0) {
+  <div class="no-cards-message">No due cards in this category!</div>
+} @else if (currentCard()) {
+  <div class="review-container">
+    <app-review-card
+      [card]="currentCard()!"
+      [allCards]="cards()"
+      [category]="currentCard()!.category || 'EN to NL'"
+      (rate)="handleRate($event)"
+      (move)="handleMove($event)"
+      (skip)="handleNextCard()"
+    />
+    
+    <div class="debug-info">
+      <div>Index:</div>
+      <div>{{ currentCardIndex() }}</div>
+      <div>Rate: {{ currentCard()!.rate }}</div>
+      <div>{{ getFormattedDue() }}</div>
+    </div>
+  </div>
+}

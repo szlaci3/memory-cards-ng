@@ -1,0 +1,117 @@
+:host {
+  display: block;
+}
+
+.flashcard {
+  outline: 10px solid rgb(171 171 171 / 1%);
+  border-radius: 10px;
+}
+
+.language-indicator {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.card-content {
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.card-content.dev-content {
+  white-space: pre-line;
+  text-align: left;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 1rem;
+}
+
+.side {
+  text-align: center;
+}
+
+.side h2 {
+  color: white;
+  font-size: 2.4rem;
+  font-weight: 500;
+}
+
+.side-yellow h2 {
+  color: yellow;
+}
+
+.dev-content .side {
+  text-align: left;
+}
+
+.dev-content .side h2 {
+  white-space: pre-line;
+}
+
+.controls {
+  margin-top: 1.5rem;
+}
+
+.show-button {
+  width: calc(100% - 20px);
+  margin: 0 10px;
+  background: linear-gradient(135deg, #f97316, #fbbf24);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  transition: background 0.2s;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.show-button:hover {
+  background: linear-gradient(135deg, #ea580c, #f59e0b);
+}
+
+.difficulty-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #f97316, #fbbf24);
+}
+
+.action-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.add-to-default-btn {
+  padding: 8px 16px;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.action-button.primary {
+  background: linear-gradient(135deg, #f97316, #fbbf24);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.winter {
+  color: white;
+  background-color: #1a1a1a;
+}

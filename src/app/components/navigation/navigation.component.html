@@ -1,0 +1,21 @@
+<nav>
+  <select
+    class="nav-section-select"
+    [value]="section()"
+    (change)="onSectionChange($event)"
+  >
+    <option value="Words">Words</option>
+    <option value="Sentences">Sentences</option>
+    <option value="Legacy">Legacy</option>
+  </select>
+
+  @for (link of activeLinks(); track link.path) {
+    <a
+      [routerLink]="link.path"
+      class="nav-link"
+      [class.active]="currentPath() === link.path"
+    >
+      {{ link.name }}
+    </a>
+  }
+</nav>
